@@ -155,8 +155,7 @@ macro_rules! print {
 #[stable(feature = "rust1", since = "1.0.0")]
 macro_rules! println {
     () => (print!("\n"));
-    ($fmt:expr) => (print!(concat!($fmt, "\n")));
-    ($fmt:expr, $($arg:tt)*) => (print!(concat!($fmt, "\n"), $($arg)*));
+    ($($arg:tt)*) => (print!("{}\n", format_args!($($arg)*)));
 }
 
 /// Macro for printing to the standard error.
@@ -212,8 +211,7 @@ macro_rules! eprint {
 #[stable(feature = "eprint", since = "1.19.0")]
 macro_rules! eprintln {
     () => (eprint!("\n"));
-    ($fmt:expr) => (eprint!(concat!($fmt, "\n")));
-    ($fmt:expr, $($arg:tt)*) => (eprint!(concat!($fmt, "\n"), $($arg)*));
+    ($($arg:tt)*) => (eprint!("{}\n", format_args!($($arg)*)));
 }
 
 #[macro_export]

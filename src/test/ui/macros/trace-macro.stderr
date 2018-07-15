@@ -5,8 +5,8 @@ LL |     println!("Hello, World!");
    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^
    |
    = note: expanding `println! { "Hello, World!" }`
-   = note: to `print ! ( concat ! ( "Hello, World!" , "/n" ) )`
-   = note: expanding `print! { concat ! ( "Hello, World!" , "/n" ) }`
-   = note: to `$crate :: io :: _print ( format_args ! ( concat ! ( "Hello, World!" , "/n" ) )
-           )`
+   = note: to `print ! ( "{}/n" , format_args ! ( "Hello, World!" ) )`
+   = note: expanding `print! { "{}/n" , format_args ! ( "Hello, World!" ) }`
+   = note: to `$crate :: io :: _print (
+           format_args ! ( "{}/n" , format_args ! ( "Hello, World!" ) ) )`
 
